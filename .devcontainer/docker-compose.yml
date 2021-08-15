@@ -1,0 +1,14 @@
+version: '3'
+services:
+  flask_market_dev_container:
+    build: 
+      context: .
+      dockerfile: ./Dockerfile
+    volumes:
+      - repo:/home/vscode/repo
+    cap_add:
+      - SYS_PTRACE
+    working_dir: /home/vscode/repo
+    command: /bin/sh -c "while sleep 1000; do :; done"
+volumes: 
+  repo:
